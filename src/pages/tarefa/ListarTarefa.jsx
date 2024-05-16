@@ -14,20 +14,21 @@ import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import Modal from '@mui/material/Modal';
-import styles from './styles.css';
+
 
 import CriarTarefa from './CriarTarefa';
 import EditarTarefa from './EditarTarefa';
+import { TableCellStyles } from '../styles/styles';
 
 //A função abaixo é usada para criar o array contendo os dados iniciais da listagem de tarefas.
 function createData(
-  idTarefa: number,
-  tituloTarefa: string,
-  descricaoTarefa: string,
-  inicioTarefa: string,
-  fimTarefa: string,
-  statusTarefa: string,
-  recursoTarefa: string,
+  idTarefa,
+  tituloTarefa,
+  descricaoTarefa,
+  inicioTarefa,
+  fimTarefa,
+  statusTarefa,
+  recursoTarefa,
 ) {
   return { idTarefa, tituloTarefa, descricaoTarefa, inicioTarefa, fimTarefa, statusTarefa, recursoTarefa };
 }
@@ -89,21 +90,25 @@ const ListarTarefa = () => {
           className='cardHeader'
           title="Tarefas"
           subheader="Listagem de Tarefas"
-        /> 
+        />
         <CardContent>
+  
             <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
-                <TableHead>
-                <TableRow>
-                    <TableCell className='header'>#</TableCell>
-                    <TableCell className='header'>Título</TableCell>
-                    <TableCell align="center" className='header'>Descrição</TableCell>
-                    <TableCell align="center" className='header'>Data de Início</TableCell>
-                    <TableCell align="center" className='header'>Data de Finalização</TableCell>
-                    <TableCell align="center" className='header'>Status</TableCell>
-                    <TableCell align="center" className='header'>Recurso</TableCell>
-                    <TableCell align="left" className='header'></TableCell>
-                    <TableCell align="left" className='header'></TableCell>
+            <TableHead>
+            <TableRow>
+                    <TableCellStyles>
+                      <TableCell><strong>#</strong></TableCell>
+                    </TableCellStyles>
+                    <TableCell align='center'><strong>Título</strong></TableCell>
+                    <TableCell align='center'><strong>Descrição</strong></TableCell>
+                    <TableCell align='center'><strong>Data de Início</strong></TableCell>
+                    <TableCell align='center'><strong>Data de Finalização</strong></TableCell>
+                    <TableCell align='center'><strong>Status</strong></TableCell>
+                    <TableCell align='center'><strong>Recurso</strong></TableCell>
+                    <TableCell align='center'></TableCell>
+                    <TableCell align='center'></TableCell>
+                    
                 </TableRow>
                 </TableHead>
                 <TableBody>
@@ -112,18 +117,20 @@ const ListarTarefa = () => {
                     key={indice}
                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                     >
-                      <TableCell component="th" scope="row">
+                      <TableCellStyles>
+                        <TableCell component="th" scope="row">
                           {row.idTarefa}
                       </TableCell>
-                      <TableCell component="th" scope="row">
+                      </TableCellStyles>
+                      <TableCell component="th" scope="row" align='center'>
                           {row.tituloTarefa}
                       </TableCell>
-                      <TableCell align="center">{row.descricaoTarefa}</TableCell>
-                      <TableCell align="center">{row.inicioTarefa}</TableCell>
-                      <TableCell align="center">{row.fimTarefa}</TableCell>
-                      <TableCell align="center">{row.statusTarefa}</TableCell>
-                      <TableCell align="center">{row.recursoTarefa}</TableCell>
-                      <TableCell align="center">
+                      <TableCell align='center'>{row.descricaoTarefa}</TableCell>
+                      <TableCell align='center'>{row.inicioTarefa}</TableCell>
+                      <TableCell align='center'>{row.fimTarefa}</TableCell>
+                      <TableCell align='center'>{row.statusTarefa}</TableCell>
+                      <TableCell align='center'>{row.recursoTarefa}</TableCell>
+                      <TableCell align='center'>
                         <Button variant="contained" color="success" onClick={() => handleEditar(row.idTarefa)}><EditIcon fontSize="small" /></Button>            
                       </TableCell>
                       <TableCell align="center">

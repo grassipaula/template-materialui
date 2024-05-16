@@ -5,7 +5,9 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
-import styles from '../pages/tarefa/styles.css';
+import { HeaderContainer } from '../pages/styles/styles.js';
+import { List } from '@phosphor-icons/react';
+
 //import MenuIcon from '@mui/icons-material/Menu';
  
 function Header() {
@@ -16,16 +18,15 @@ function Header() {
             <IconButton
               size="large"
               edge="start"
-              color="inherit"
               aria-label="menu"
               sx={{ mr: 2 }}
             >
-              {/*  
-              <MenuIcon />
-              */}
+              <List size={24} color='white' />
+              
             </IconButton>
-            <Typography className="typography" /* variant="h6" component="div" sx={{ flexGrow: 1 }} */ >
-              Gerenciamento de Projetos
+            
+            <Typography>
+              <HeaderContainer>Gerenciamento de Projetos</HeaderContainer>
             </Typography>
           </Toolbar>
         </AppBar>
